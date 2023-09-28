@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consulta por ID</title>
+</head>
+<body>
+<a href="{% url 'index' %}">Início</a><br>
+
+<h1>Consultar EpisodioPersonagem por ID</h1>
+
+<form action="{% url 'consulta_ep_personagem' %}" method="post">
+    {% csrf_token %}
+    <label for="episodio_id">ID do Episodio:</label>
+    <input type="number" id="episodio_id" name="episodio_id">
+    <button type="submit">Consultar</button>
+</form>
+
+</body>
+</html>

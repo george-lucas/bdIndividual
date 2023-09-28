@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulários</title>
+</head>
+<body>
+
+<a href="{% url 'index' %}">Início</a><br>
+<h1>Relacionar Episódio e Personagem</h1>
+
+<form method="post">
+    {% csrf_token %}
+    a
+    {{ form.as_p }}
+    <button type="submit">Enviar</button>
+</form>
+
+</body>
+</html>

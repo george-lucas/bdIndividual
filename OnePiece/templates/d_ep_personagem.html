@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalhes dos EpisodiosPersonagem</title>
+</head>
+<body>
+<a href="{% url 'index' %}">Início</a><br>
+<h1>Detalhes dos EpisodiosPersonagem</h1>
+
+{% for episodio_personagem in episodio_personagem_list %}
+    <div>
+        <p><strong>Episodio Número:</strong> {{ episodio_personagem.episodio_numero.numero }}</p>
+        <p><strong>Personagem:</strong> {{ episodio_personagem.personagem }}</p>
+    
+        <!-- Botão para deletar o objeto -->
+        <form action="{% url 'deletar_episodio_personagem' episodio_id=episodio_personagem.episodio_numero.numero personagem_id=episodio_personagem.personagem.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Deletar Episodio Personagem</button>
+        </form>
+    </div>
+    <hr> <!-- Adicionando uma linha horizontal para separar cada item -->
+{% endfor %}
+
+</body>
+</html>
