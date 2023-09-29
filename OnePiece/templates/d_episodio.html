@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalhes do Episodio</title>
+</head>
+<body>
+<a href="{% url 'index' %}">Início</a><br>
+<h1>Detalhes do Episodio</h1>
+
+    <p><strong>Episodio:</strong> {{ list }}</p>
+    
+    <form action="{% url 'deletar_episodio' id=list.numero %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Deletar episodio</button>
+    </form>
+    
+    <a href="{% url 'update_episodio' id=list.numero %}" class="btn btn-primary">Atualizar episodio</a>
+
+    <hr>
+
+</body>
+</html>

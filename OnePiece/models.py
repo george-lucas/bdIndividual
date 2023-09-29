@@ -79,7 +79,7 @@ class Episodio(models.Model):
     temporada = models.ForeignKey('Temporada', models.DO_NOTHING)
 
     def __str__(self):
-        return f'Episodio {self.numero} - {self.titulo}'
+        return f'Episodio {self.numero} - {self.titulo} \n Sinopse: {self.sinopse}.\n Duração: {self.duracao} minutos. \n Temporada: {self.temporada.numero}'
     class Meta:
         managed = False
         db_table = 'episodio'
@@ -90,6 +90,8 @@ class Temporada(models.Model):
     numero = models.IntegerField()
     duracao = models.IntegerField(blank=True, null=True)
 
+    def __str__(self):
+        return f'Temporada {self.numero} - {self.duracao} episodios'
     class Meta:
         managed = False
         db_table = 'temporada'
